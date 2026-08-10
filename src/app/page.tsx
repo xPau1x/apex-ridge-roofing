@@ -1,4 +1,14 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+// import { NavigationMenu } from "@/components/ui/navigation-menu";
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 export default function Home() {
     return (
@@ -12,6 +22,60 @@ export default function Home() {
                     height={20}
                     priority
                 />
+                <div className="flex flex-col items-center justify-center p-24 gap-4">
+                    <NavigationMenu>
+                        <NavigationMenuList>
+                            {/* Simple Link Item */}
+                            <NavigationMenuItem>
+                                <NavigationMenuLink
+                                    href="/about"
+                                    className="px-4 py-2 hover:text-primary"
+                                >
+                                    About Us
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+
+                            {/* Hover Dropdown Item */}
+                            <NavigationMenuItem>
+                                <NavigationMenuTrigger>
+                                    Services
+                                </NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                                        <NavigationMenuLink
+                                            href="/services/web-dev"
+                                            className="block p-3 rounded-md hover:bg-muted"
+                                        >
+                                            <div className="font-semibold">
+                                                Web Development
+                                            </div>
+                                            <p className="text-sm text-muted-foreground">
+                                                Custom, fast web applications.
+                                            </p>
+                                        </NavigationMenuLink>
+
+                                        <NavigationMenuLink
+                                            href="/services/design"
+                                            className="block p-3 rounded-md hover:bg-muted"
+                                        >
+                                            <div className="font-semibold">
+                                                UI/UX Design
+                                            </div>
+                                            <p className="text-sm text-muted-foreground">
+                                                Interface design and systems.
+                                            </p>
+                                        </NavigationMenuLink>
+                                    </div>
+                                </NavigationMenuContent>
+                            </NavigationMenuItem>
+                        </NavigationMenuList>
+                    </NavigationMenu>
+                    <Button>Click me</Button>
+                    {/* Button Variants */}
+                    <Button variant="secondary">Secondary</Button>
+                    <Button variant="outline">Outline</Button>
+                    <Button variant="destructive">Destructive</Button>
+                </div>
                 <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
                     <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
                         To get started, edit the{" "}
